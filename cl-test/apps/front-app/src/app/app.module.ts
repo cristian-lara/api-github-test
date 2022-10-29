@@ -6,6 +6,7 @@ import { NxWelcomeComponent } from './nx-welcome.component';
 import { HomeComponent } from './routes/home/home.component';
 import { RouteCommitsComponent } from './routes/route-commits/route-commits.component';
 import { TableCommitsComponent } from './components/table-commits/table-commits.component';
+import {AppRoutingModule} from './app-routing.module';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,7 @@ import { TableCommitsComponent } from './components/table-commits/table-commits.
     RouteCommitsComponent,
     TableCommitsComponent,
   ],
-  imports: [BrowserModule],
+  imports: [BrowserModule, AppRoutingModule],
   providers: [],
   bootstrap: [AppComponent],
 })
