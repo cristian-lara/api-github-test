@@ -7,6 +7,7 @@ import { HomeComponent } from './routes/home/home.component';
 import { RouteCommitsComponent } from './routes/github/route-commits/route-commits.component';
 import { TableCommitsComponent } from './components/table-commits/table-commits.component';
 import {AppRoutingModule} from './app-routing.module';
+import {RouteGithubModule} from "./routes/github/route-github.module";
 
 @NgModule({
   declarations: [
@@ -16,7 +17,7 @@ import {AppRoutingModule} from './app-routing.module';
     RouteCommitsComponent,
     TableCommitsComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule],
+  imports: [BrowserModule, AppRoutingModule, RouteGithubModule],
   providers: [],
   bootstrap: [AppComponent],
 })
