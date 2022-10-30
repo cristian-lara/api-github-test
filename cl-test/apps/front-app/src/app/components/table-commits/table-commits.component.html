@@ -7,7 +7,8 @@
       </header>
       <div class="p-3">
         <div class="overflow-x-auto">
-          <table class="table-auto w-full overflow-scroll">
+          <span *ngIf="!commitsHistory">No data to show</span>
+          <table *ngIf="commitsHistory" class="table-auto w-full overflow-scroll">
             <thead class="text-xs font-semibold uppercase text-gray-400 bg-gray-50">
             <tr>
               <th *ngFor="let head of headers" class="p-2 whitespace-nowrap">
