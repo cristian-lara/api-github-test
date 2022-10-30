@@ -1,7 +1,7 @@
 interface GithubCommitsInterface {
   sha?: string;
   node_id?: string;
-  commit?: CommitInterface;
+  commit: CommitInterface;
   url?: string;
   html_url:string;
   comments_url: string;

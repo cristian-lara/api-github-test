@@ -9,6 +9,7 @@ import { TableCommitsComponent } from './components/table-commits/table-commits.
 import {AppRoutingModule} from './app-routing.module';
 import {RouteGithubModule} from "./routes/github/route-github.module";
 import {HttpClientModule} from "@angular/common/http";
+import {CommonModule} from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,7 @@ import {HttpClientModule} from "@angular/common/http";
     RouteCommitsComponent,
     TableCommitsComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, RouteGithubModule, HttpClientModule],
+  imports: [BrowserModule, AppRoutingModule, RouteGithubModule, HttpClientModule, CommonModule],
   providers: [],
   bootstrap: [AppComponent],
 })
