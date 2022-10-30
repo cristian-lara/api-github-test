@@ -14,7 +14,7 @@ export class GithubService {
     this.url = `${environment.urlAPI}${this.path}`;
   }
 
-  getCommitsHistory(): Observable<GithubCommitsInterface>{
-    return this._httpClient.get<GithubCommitsInterface>(this.url+'commits');
+  getCommitsHistory(): Observable<GithubCommitsInterface[]>{
+    return this._httpClient.get<GithubCommitsInterface[]>(this.url+'commits');
   }
 }
