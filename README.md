@@ -15,4 +15,5 @@ After this if you want to run:
 ``npm run api`` 
 you should visit  ``http:<domain>:3333/api``
 ### Client
-``npm run ui`` port ``http:<domain>:4200``
+``npm run ui`` 
+you should visit  ``http:<domain>:4200``
