@@ -10,6 +10,7 @@ import {AppRoutingModule} from './app-routing.module';
 import {RouteGithubModule} from "./routes/github/route-github.module";
 import {HttpClientModule} from "@angular/common/http";
 import {CommonModule} from '@angular/common';
+import {FormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,7 @@ import {CommonModule} from '@angular/common';
     RouteCommitsComponent,
     TableCommitsComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, RouteGithubModule, HttpClientModule, CommonModule],
+  imports: [BrowserModule, AppRoutingModule, RouteGithubModule, HttpClientModule, CommonModule, FormsModule],
   providers: [],
   bootstrap: [AppComponent],
 })

@@ -1,4 +1,10 @@
+
 <cl-test-header-menu *ngIf="data" routeName="History commits">
+  <div class="text-center">
+    <p class="text-lg font-medium leading-8 text-indigo-600/95">Welcome</p>
+    <h1 class="mt-3 text-[3.5rem] font-bold leading-[4rem] tracking-tight text-black">{{guestService.nameGuest}}</h1>
+    <p class="mt-3 text-lg leading-relaxed text-slate-400">You are watching the history commits.</p>
+  </div>
   <cl-test-table-commits [commitsHistory]="data.data" [total]="data.total"></cl-test-table-commits>
 </cl-test-header-menu>
 

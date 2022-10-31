@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {Router} from '@angular/router';
+import {GuestService} from '../../services/github/guest.service';
 
 @Component({
   selector: 'cl-test-home',
@@ -6,7 +8,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent implements OnInit {
-  constructor() {}
+  nameGuest: string = 'afsdf';
+  constructor(private readonly router: Router, private readonly guestService: GuestService) {}
 
   ngOnInit(): void {}
+
+  goToGithub() {
+    this.guestService.nameGuest = this.nameGuest;
+    this.router.navigate(['/', 'github']);
+  }
 }

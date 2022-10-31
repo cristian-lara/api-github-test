@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import {takeUntil, UnsubscriptionError} from 'rxjs';
+import {takeUntil} from 'rxjs';
 import {autoUnsubscribeMixin} from '../../../utils/unsubscribe.class';
 import {GithubService} from '../../../services/github/github.service';
 import {GithubCommitsInterface} from '@cl-test/github';
+import {GuestService} from '../../../services/github/guest.service';
 
 @Component({
   selector: 'cl-test-route-commits',
@@ -10,9 +11,8 @@ import {GithubCommitsInterface} from '@cl-test/github';
   styleUrls: ['./route-commits.component.scss'],
 })
 export class RouteCommitsComponent extends autoUnsubscribeMixin() implements OnInit {
-  commitsHistory!: GithubCommitsInterface[];
   data!: { total: number; data: GithubCommitsInterface[] };
-  constructor(private readonly githubService: GithubService) {
+  constructor(private readonly githubService: GithubService, public readonly guestService: GuestService) {
     super()
   }
 
