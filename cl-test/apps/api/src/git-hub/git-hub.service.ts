@@ -12,7 +12,7 @@ export class GitHubService extends GithubClassBase{
   async getCommitByRepo(perPage =10, page= 1):Promise<{ total: number; data: GithubCommitsInterface[] }>{
     try {
       const paginate = await this.octokit.request(`${API_GITHUB_URL.getCommits}`, {...this.repoCredentials, per_page:perPage,page})
-      const total = await this.octokit.request(`${API_GITHUB_URL.getCommits}`, {...this.repoCredentials})
+      const total = await this.octokit.request(`${API_GITHUB_URL.getCommits}`, {...this.repoCredentials,per_page:100})
       return {data: paginate.data as GithubCommitsInterface[],total: total.data.length} ;
     }catch (e){
       throw new BadRequestException(e)

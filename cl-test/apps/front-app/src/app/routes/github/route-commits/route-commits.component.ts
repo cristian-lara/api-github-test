@@ -11,6 +11,7 @@ import {GithubCommitsInterface} from '@cl-test/github';
 })
 export class RouteCommitsComponent extends autoUnsubscribeMixin() implements OnInit {
   commitsHistory!: GithubCommitsInterface[];
+  data!: { total: number; data: GithubCommitsInterface[] };
   constructor(private readonly githubService: GithubService) {
     super()
   }
@@ -25,6 +26,6 @@ export class RouteCommitsComponent extends autoUnsubscribeMixin() implements OnI
       .pipe(
         takeUntil(this.destroy$)
       )
-      .subscribe(commitsHistory => this.commitsHistory = commitsHistory);
+      .subscribe(response => this.data = response);
   }
 }

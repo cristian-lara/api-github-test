@@ -18,7 +18,7 @@
             </tr>
             </thead>
             <tbody class="text-sm divide-y divide-gray-100">
-            <tr *ngFor="let commit of filter()">
+            <tr *ngFor="let commit of commitsHistory">
               <td class="p-2 whitespace-nowrap">
                 <div class="flex items-center">
                   <div class="w-10 h-10 flex-shrink-0 mr-2 sm:mr-3"><img class="rounded-full" [src]="commit.committer.avatar_url" width="40" height="40" alt="Alex Shatov"></div>
@@ -37,6 +37,17 @@
             </tr>
             </tbody>
           </table>
+          <div class="py-2">
+            <nav class="block">
+              <ul class="flex pl-0 rounded list-none flex-wrap">
+                <li *ngFor="let page of totalPages; let i = index">
+                  <a (click)="filter(i)" class="cursor-pointer first:ml-0 text-xs font-semibold flex w-8 h-8 mx-1 p-0 rounded-full items-center justify-center leading-tight relative border border-solid border-pink-500 bg-white text-pink-500">
+                   {{page}}
+                  </a>
+                </li>
+              </ul>
+            </nav>
+          </div>
         </div>
       </div>
     </div>

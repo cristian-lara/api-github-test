@@ -1,5 +1,5 @@
-<cl-test-header-menu routeName="History commits">
-  <cl-test-table-commits [commitsHistory]="commitsHistory"></cl-test-table-commits>
+<cl-test-header-menu *ngIf="data" routeName="History commits">
+  <cl-test-table-commits [commitsHistory]="data.data" [total]="data.total"></cl-test-table-commits>
 </cl-test-header-menu>
 
 
