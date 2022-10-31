@@ -3,15 +3,17 @@ import {ConfigService} from '@nestjs/config';
 import {GithubClassBase} from './github.class';
 import {API_GITHUB_URL} from './github.constants';
 import {GithubCommitsInterface} from "@cl-test/github";
+
 @Injectable()
 export class GitHubService extends GithubClassBase{
   constructor(private readonly configServiceVariable: ConfigService) {
     super(configServiceVariable)
   }
-  async getCommitByRepo():Promise<GithubCommitsInterface>{
+  async getCommitByRepo(perPage =10, page= 1):Promise<{ total: number; data: GithubCommitsInterface[] }>{
     try {
-      const response = await this.octokit.request(API_GITHUB_URL.getCommits, this.repoCredentials)
-      return  response.data as GithubCommitsInterface ;
+      const paginate = await this.octokit.request(`${API_GITHUB_URL.getCommits}`, {...this.repoCredentials, per_page:perPage,page})
+      const total = await this.octokit.request(`${API_GITHUB_URL.getCommits}`, {...this.repoCredentials})
+      return {data: paginate.data as GithubCommitsInterface[],total: total.data.length} ;
     }catch (e){
       throw new BadRequestException(e)
     }
