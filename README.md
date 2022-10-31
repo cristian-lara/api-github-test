@@ -12,6 +12,7 @@ run ``npm i`` to install all dependencies
 
 After this if you want to run:
 ### API
-``npm run api`` port ``3333``
+``npm run api`` 
+you should visit  ``http:<domain>:3333/api``
 ### Client
-``npm run ui`` port ``4200``
+``npm run ui`` port ``http:<domain>:4200``
