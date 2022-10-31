@@ -9,10 +9,11 @@ export class GitHubService extends GithubClassBase{
   constructor(private readonly configServiceVariable: ConfigService) {
     super(configServiceVariable)
   }
-  async getCommitByRepo(perPage =10, page= 1):Promise< GithubCommitsInterface[] >{
+  async getCommitByRepo(perPage =10, page= 1):Promise<{ total: number; data: GithubCommitsInterface[] }>{
     try {
       const paginate = await this.octokit.request(`${API_GITHUB_URL.getCommits}`, {...this.repoCredentials, per_page:perPage,page})
-      return paginate.data as GithubCommitsInterface[] ;
+      const total = await this.octokit.request(`${API_GITHUB_URL.getCommits}`, {...this.repoCredentials})
+      return {data: paginate.data as GithubCommitsInterface[],total: total.data.length} ;
     }catch (e){
       throw new BadRequestException(e)
     }
